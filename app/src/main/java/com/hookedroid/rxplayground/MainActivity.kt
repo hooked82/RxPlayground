@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        compositeDisposable.add(createAppEventsSubcription())
+        compositeDisposable.add(createAppEventsSubscription())
     }
 
     override fun onStop() {
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         compositeDisposable = CompositeDisposable()
     }
 
-    private fun createAppEventsSubcription(): Disposable = appEventFlowable.doOnNext {
+    private fun createAppEventsSubscription(): Disposable = appEventFlowable.doOnNext {
         when (it) {
             AppEvent.Show -> {
                 if (mainFragment == null) {
